@@ -1,20 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: okv2
+  name: elecv2
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: okv2
+      name: elecv2
   template:
     metadata:
       labels:
-        name: okv2
+        name: elecv2
     spec:
       restartPolicy: Always
       containers:
         - name: v2ku
           image: okv2/v2-repo
           ports:
-            - containerPort: 23456          
+            - containerPort: 23456
+            
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: v2kurl
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+spec:
+  type: ClusterIP  
+  ports:
+  - name: "v2kurl"
+    port: 23456
+  selector:
+    name: elecv2
