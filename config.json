@@ -1,40 +1,28 @@
 {
-	"inbounds": [{
-		"port": "8251",
-		"protocol": "vmess",
-		"settings": {
-			"clients": [ {"id": "7c0aceec-0c5d-4468-bf61-e22c65e9abbb",	"alterId": 16} ]
-		},
-		"streamSettings": {
-			"network": "ws",
-			"security": "auto",
-			"wsSettings": {
-				"path": "/elecV2"
-			}
-		}
-	},{
-	   "port": 443,
-       "protocol": "vless",
-       "settings": {
-            "clients": [
-                    {
-                        "id": "7c0aceec-0c5d-4468-bf61-e22c65e9abbb",
-                        "level": 0,
-                        "email": "love@v2fly.org"
-                    }
-                ],
-                "decryption": "none"
-          },
-          "streamSettings": {
-                "network": "tcp",
-                "security": "auto"
+  "inbounds": [
+    {
+      "port": 23456,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "2a64d3d2-0671-49bb-aba2-79c7e5caa96d",
+            "alterId": 64
           }
-	}],
-	"outbound": {
-		"protocol": "freedom",
-		"settings": {}
-	},
-	"dns": {
-		"servers": [ "176.103.130.130", "8.8.8.8", "1.1.1.1", "114.114.114.114"]
-	}
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+        "path": "/mypro"
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    }
+  ]
 }
